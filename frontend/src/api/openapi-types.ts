@@ -25,6 +25,11 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /**
+         * Errors
+         * @enum {integer}
+         */
+        Errors: 0 | 1 | 2;
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -43,6 +48,7 @@ export interface components {
              * @default []
              */
             tags: string[] | null;
+            error?: components["schemas"]["Errors"] | null;
         };
         /** ValidationError */
         ValidationError: {
