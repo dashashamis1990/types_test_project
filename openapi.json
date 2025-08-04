@@ -46,6 +46,15 @@
   },
   "components": {
     "schemas": {
+      "Errors": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "title": "Errors"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -87,6 +96,16 @@
             ],
             "title": "Tags",
             "default": []
+          },
+          "error": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Errors"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
